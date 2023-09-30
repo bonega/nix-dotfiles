@@ -17,7 +17,9 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
+    cowsay
+    rustup
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -67,4 +69,19 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.git = {
+    enable = true;
+    aliases = {
+      "st" = "status";
+    };
+
+  };
+  programs.hyprland.enable = true;
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
+  };
 }
