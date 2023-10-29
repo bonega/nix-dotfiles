@@ -24,6 +24,7 @@
     du-dust
     bat
     pkgs-unstable.nixd
+    nixpkgs-fmt
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

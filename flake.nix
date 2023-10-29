@@ -16,7 +16,8 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-    in {
+    in
+    {
       homeConfigurations."andreasliljeqvist" =
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
