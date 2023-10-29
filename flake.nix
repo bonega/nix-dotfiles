@@ -15,6 +15,7 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in {
       homeConfigurations."andreasliljeqvist" =
         home-manager.lib.homeManagerConfiguration {
@@ -26,6 +27,7 @@
 
           # Optionally use extraSpecialArgs
           # to pass through arguments to home.nix
+          extraSpecialArgs = { inherit pkgs-unstable; };
         };
     };
 }
