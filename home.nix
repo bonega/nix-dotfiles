@@ -25,6 +25,7 @@
     bat
     pkgs-unstable.nixd
     nixpkgs-fmt
+    # suite_py
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -72,6 +73,10 @@
     # EDITOR = "emacs";
   };
 
+  home.shellAliases = {
+      suitepy = "ls";
+    };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.git = {
@@ -92,4 +97,6 @@
     enable = true;
     lockCmd = "i3lock -n -c 000000";
   };
+  programs.yazi.enable = true;
+  programs.lazygit.enable=true;
 }
