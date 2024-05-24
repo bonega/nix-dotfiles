@@ -25,6 +25,11 @@
     bat
     pkgs-unstable.nixd
     nixpkgs-fmt
+    git
+    clang
+    lld
+    nil
+    openssh
     # suite_py
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -74,8 +79,8 @@
   };
 
   home.shellAliases = {
-      suitepy = "ls";
-    };
+    suitepy = "ls";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -88,7 +93,6 @@
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
-    enableFishIntegration = true;
     nix-direnv.enable = true;
   };
 
@@ -98,5 +102,12 @@
     lockCmd = "i3lock -n -c 000000";
   };
   programs.yazi.enable = true;
-  programs.lazygit.enable=true;
+  programs.lazygit.enable = true;
+  programs.neovim = { enable = true; };
+  programs.fish = { enable = true; };
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
 }
