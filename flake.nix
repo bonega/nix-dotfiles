@@ -10,9 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #suite_py.url = "suite_py";
+    nixgl = { url = "github:guibou/nixgl"; };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, suite_py, ... }:
+  outputs = { nixgl, nixpkgs, nixpkgs-unstable, home-manager, suite_py, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -20,7 +21,7 @@
 
         config.allowUnfree = true;
 
-        overlays = [suite_py.overlays.default];
+        overlays = [ suite_py.overlays.default nixgl.overlay ];
       };
 
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};

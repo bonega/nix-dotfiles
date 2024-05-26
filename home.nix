@@ -1,5 +1,13 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, lib, specialArgs, ... }:
+let
+  helpers = import ./helpers.nix {
+    inherit pkgs;
+    inherit lib;
+    inherit config;
+    inherit specialArgs;
+  };
 
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -30,6 +38,7 @@
     lld
     nil
     openssh
+    (helpers.nixGLMesaWrap pkgs.wezterm)
     # suite_py
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
