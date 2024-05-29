@@ -39,6 +39,7 @@ in
     nil
     openssh
     (helpers.nixGLMesaWrap pkgs.wezterm)
+    dbeaver
     # suite_py
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -87,9 +88,6 @@ in
     # EDITOR = "emacs";
   };
 
-  home.shellAliases = {
-    suitepy = "ls";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
