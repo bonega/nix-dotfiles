@@ -9,7 +9,7 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #suite_py.url = "suite_py";
+    suite_py.url = "suite_py";
     nixgl = { url = "github:guibou/nixgl"; };
   };
 
