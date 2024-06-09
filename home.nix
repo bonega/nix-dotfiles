@@ -110,7 +110,10 @@ in
   };
   programs.yazi.enable = true;
   programs.lazygit.enable = true;
-  programs.neovim = { enable = true; };
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+  };
   programs.fish = { enable = true; };
   programs.starship = {
     enable = true;
