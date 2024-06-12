@@ -40,6 +40,8 @@ in
     openssh
     (helpers.nixGLMesaWrap pkgs.wezterm)
     dbeaver
+    hyperfine
+    gnucash
     # suite_py
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
