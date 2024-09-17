@@ -26,23 +26,21 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    rustup
-    nixfmt
+    nixfmt-classic
     ripgrep
     du-dust
     bat
     pkgs-unstable.nixd
     nixpkgs-fmt
-    git
-    clang
     lld
     nil
-    openssh
     (helpers.nixGLMesaWrap pkgs.wezterm)
-    dbeaver
+    dbeaver-bin
     hyperfine
     gnucash
-    # suite_py
+    insomnia
+    mysql-client
+    openssh
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -121,5 +119,6 @@ in
     enable = true;
     enableFishIntegration = true;
   };
+  programs.bottom = { enable = true; };
 
 }
