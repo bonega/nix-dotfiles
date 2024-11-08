@@ -38,9 +38,9 @@ in
     dbeaver-bin
     hyperfine
     gnucash
-    insomnia
     mysql-client
     openssh
+    devenv
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
