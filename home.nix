@@ -115,7 +115,12 @@ in
     enable = true;
     vimAlias = true;
   };
-  programs.fish = { enable = true; };
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      suite-py = "nix shell suite_py -c suite-py";
+    };
+  };
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
