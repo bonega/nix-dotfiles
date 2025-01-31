@@ -42,6 +42,12 @@ in
     openssh
     devenv
     jq
+    postgresql
+    (pkgs.nerdfonts.override {
+      fonts = [ "JetBrainsMono" ];
+    })
+    fzf
+    (helpers.nixGLMesaWrap pkgs.kitty)
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
