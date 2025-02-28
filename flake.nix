@@ -21,10 +21,18 @@
 
         config.allowUnfree = true;
 
-        overlays = [ suite_py.overlays.default nixgl.overlay ];
+        overlays = [
+          suite_py.overlays.default
+          nixgl.overlay
+          (self: super: {
+            unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          })
+        ];
       };
 
-      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
       homeConfigurations."andreasliljeqvist" =
@@ -37,7 +45,7 @@
 
           # Optionally use extraSpecialArgs
           # to pass through arguments to home.nix
-          extraSpecialArgs = { inherit pkgs-unstable; };
+          extraSpecialArgs = { };
         };
     };
 }

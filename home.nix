@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, lib, specialArgs, ... }:
+{ config, pkgs, lib, specialArgs, ... }:
 let
   helpers = import ./helpers.nix {
     inherit pkgs;
@@ -7,8 +7,7 @@ let
     inherit specialArgs;
   };
 
-in
-{
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "andreasliljeqvist";
@@ -30,7 +29,7 @@ in
     ripgrep
     du-dust
     bat
-    pkgs-unstable.nixd
+    pkgs.unstable.nixd
     nixpkgs-fmt
     lld
     nil
@@ -43,11 +42,10 @@ in
     devenv
     jq
     postgresql
-    (pkgs.nerdfonts.override {
-      fonts = [ "JetBrainsMono" ];
-    })
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     fzf
     (helpers.nixGLMesaWrap pkgs.kitty)
+    wl-clipboard
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -95,7 +93,6 @@ in
     # EDITOR = "emacs";
   };
 
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.git = {
@@ -111,26 +108,22 @@ in
   };
 
   programs.rofi = { enable = true; };
-  services.screen-locker = {
-    enable = true;
-    lockCmd = "i3lock -n -c 000000";
-  };
   programs.yazi.enable = true;
   programs.lazygit.enable = true;
   programs.neovim = {
     enable = true;
     vimAlias = true;
+    package = pkgs.unstable.neovim-unwrapped;
   };
   programs.fish = {
     enable = true;
-    shellAliases = {
-      suite-py = "nix shell suite_py -c suite-py";
-    };
+    shellAliases = { suite-py = "nix shell suite_py -c suite-py"; };
   };
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
   };
   programs.bottom = { enable = true; };
+  programs.helix = { enable = true; };
 
 }
