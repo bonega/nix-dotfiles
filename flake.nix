@@ -30,11 +30,15 @@
               config.allowUnfree = true;
             };
           })
+          (self: super: {
+            lib = super.lib // home-manager.lib // {
+              hm = home-manager.lib.hm;
+            };
+          })
         ];
       };
 
-    in
-    {
+    in {
       homeConfigurations."andreasliljeqvist" =
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -45,7 +49,9 @@
 
           # Optionally use extraSpecialArgs
           # to pass through arguments to home.nix
-          extraSpecialArgs = { };
+          extraSpecialArgs = {
+            dotsPath = "/home/andreasliljeqvist/nix-dotfiles/";
+          };
         };
     };
 }

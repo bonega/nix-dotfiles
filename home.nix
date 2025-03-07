@@ -46,6 +46,8 @@ in {
     fzf
     (helpers.nixGLMesaWrap pkgs.kitty)
     wl-clipboard
+    tmux
+    entr
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -78,7 +80,7 @@ in {
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-
+  xdg.configFile."nvim".source = helpers.dotLink "nvim";
   # You can also manage environment variables but you will have to manually
   # source
   #
@@ -125,5 +127,4 @@ in {
   };
   programs.bottom = { enable = true; };
   programs.helix = { enable = true; };
-
 }

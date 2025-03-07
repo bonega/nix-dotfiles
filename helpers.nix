@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, specialArgs, ... }:
 let
 
   nixGLMesaWrap = pkg:
@@ -44,10 +44,17 @@ let
       done
     '';
 
+  mkOutOfStoreSymlink = path:
+    let
+      pathStr = toString path;
+      name = pkgs.lib.hm.strings.storeFileName (baseNameOf pathStr);
+    in pkgs.runCommandLocal name { }
+    "ln -s ${pkgs.lib.escapeShellArg pathStr} $out";
+  dotLink = path: mkOutOfStoreSymlink "${specialArgs.dotsPath}/${path}";
 
-in
-{
+in {
   nixGLMesaWrap = nixGLMesaWrap;
   nixGLVulkanWrap = nixGLVulkanWrap;
   nixGLVulkanMesaWrap = nixGLVulkanMesaWrap;
+  dotLink = dotLink;
 }
