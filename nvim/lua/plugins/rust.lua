@@ -21,6 +21,9 @@ return {
               -- features = "all",
               command = "check",
             },
+            diagnostics = {
+              disabled = { "inactive-code" },
+            },
           },
         },
       },
