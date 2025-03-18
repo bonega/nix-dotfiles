@@ -48,6 +48,7 @@ in {
     wl-clipboard
     tmux
     entr
+    vault
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -120,7 +121,10 @@ in {
   };
   programs.fish = {
     enable = true;
-    shellAliases = { suite-py = "nix shell suite_py -c suite-py"; };
+    shellAliases = {
+      suite-py = "nix shell suite_py -c suite-py";
+      vault = "VAULT_ADDR=https://vault.helloprima.com:8200 command vault";
+    };
   };
   programs.starship = {
     enable = true;
