@@ -81,6 +81,7 @@ in {
     # '';
   };
   xdg.configFile."nvim".source = helpers.dotLink "nvim";
+  xdg.configFile."tmux".source = helpers.dotLink "tmux";
   # You can also manage environment variables but you will have to manually
   # source
   #
