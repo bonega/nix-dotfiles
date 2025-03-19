@@ -47,6 +47,9 @@ in {
     (helpers.nixGLMesaWrap pkgs.kitty)
     wl-clipboard
     tmux
+    tmuxinator
+    sesh
+    zoxide
     entr
     vault
     # # Adds the 'hello' command to your environment. It prints a friendly
@@ -125,6 +128,17 @@ in {
       suite-py = "nix shell suite_py -c suite-py";
       vault = "VAULT_ADDR=https://vault.helloprima.com:8200 command vault";
     };
+    plugins = [{
+      name = "zoxide";
+      src = pkgs.fetchFromGitHub {
+        owner = "ajeetdsouza";
+        repo = "zoxide";
+        rev = "d74bce3b7418ed965f5056297db8bb081a29121c";
+        sha256 = "sha256-+QZpLMlHOZdbKLFYOUOIRZHvIsbMDdstj9oGzyEGVxk=";
+      };
+    }
+
+      ];
   };
   programs.starship = {
     enable = true;
